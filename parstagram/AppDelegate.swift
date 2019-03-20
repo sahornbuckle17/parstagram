@@ -25,6 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://cryptic-island-91501.herokuapp.com/parse"
             })
         )
+        
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let FeedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
+            window?.rootViewController = FeedNavigationController
+        }
         return true
     }
 
